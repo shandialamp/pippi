@@ -55,3 +55,12 @@ func TestEach(t *testing.T) {
 	})
 	assert.Equal(t, 10, sum)
 }
+
+func TestFilter(t *testing.T) {
+	c1 := []int{1, 2, 3, 4}
+	collect1 := New(c1)
+	collect2 := collect1.Filter(func(i int) bool {
+		return i == 4
+	})
+	assert.Equal(t, 1, collect2.Size())
+}
