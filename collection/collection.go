@@ -41,3 +41,13 @@ func (c *Collection[T]) Each(method func(T)) {
 		method(item)
 	}
 }
+
+func (c *Collection[T]) Filter(method func(T) bool) *Collection[T] {
+	newCollect := &Collection[T]{data: make([]T, 0)}
+	for _, item := range c.data {
+		if method(item) {
+			newCollect.Push(item)
+		}
+	}
+	return newCollect
+}
