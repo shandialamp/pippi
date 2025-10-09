@@ -35,3 +35,9 @@ func (c *Collection[T]) Pull() T {
 func (c *Collection[T]) Size() int {
 	return len(c.data)
 }
+
+func (c *Collection[T]) Each(method func(T)) {
+	for _, item := range c.data {
+		method(item)
+	}
+}
