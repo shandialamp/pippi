@@ -45,3 +45,13 @@ func TestPull(t *testing.T) {
 	assert.Equal(t, 3, len(c2))
 	assert.Equal(t, 4, v)
 }
+
+func TestEach(t *testing.T) {
+	c1 := []int{1, 2, 3, 4}
+	collect := New(c1)
+	sum := 0
+	collect.Each(func(i int) {
+		sum += i
+	})
+	assert.Equal(t, 10, sum)
+}
