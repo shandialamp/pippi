@@ -27,3 +27,12 @@ func TestMap(t *testing.T) {
 	assert.Equal(t, "2", c2[1])
 	assert.Equal(t, "3", c2[2])
 }
+
+func TestPush(t *testing.T) {
+	c1 := []int{1, 2, 3}
+	collect := New(c1)
+	collect.Push(4)
+	c2 := collect.ToSlice()
+	assert.Equal(t, 4, len(c2))
+	assert.Equal(t, 4, c2[3])
+}
