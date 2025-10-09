@@ -36,3 +36,12 @@ func TestPush(t *testing.T) {
 	assert.Equal(t, 4, len(c2))
 	assert.Equal(t, 4, c2[3])
 }
+
+func TestPull(t *testing.T) {
+	c1 := []int{1, 2, 3, 4}
+	collect := New(c1)
+	v := collect.Pull()
+	c2 := collect.ToSlice()
+	assert.Equal(t, 3, len(c2))
+	assert.Equal(t, 4, v)
+}
