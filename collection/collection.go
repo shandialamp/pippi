@@ -21,3 +21,7 @@ func Map[T any, R any](c *Collection[T], method func(T) R) *Collection[R] {
 	}
 	return &Collection[R]{data: out}
 }
+
+func (c *Collection[T]) Push(v T) {
+	c.data = append(c.data, v)
+}
