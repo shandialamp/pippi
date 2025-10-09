@@ -25,3 +25,13 @@ func Map[T any, R any](c *Collection[T], method func(T) R) *Collection[R] {
 func (c *Collection[T]) Push(v T) {
 	c.data = append(c.data, v)
 }
+
+func (c *Collection[T]) Pull() T {
+	last := c.data[c.Size()-1]
+	c.data = c.data[:c.Size()-1]
+	return last
+}
+
+func (c *Collection[T]) Size() int {
+	return len(c.data)
+}
